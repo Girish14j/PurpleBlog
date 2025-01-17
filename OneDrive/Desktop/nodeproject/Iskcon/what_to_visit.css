@@ -1,0 +1,106 @@
+.card {
+    display: inline-block;
+    height: 220px;
+    width: 350px;
+    margin: 10px;
+    box-shadow: 0 4px 8px black;
+    transition: box-shadow 0.3s ease-in-out;
+    text-align: center;
+}
+
+.Heading {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: rgb(96, 52, 158);
+    margin: 20px 0;
+}
+
+.para {
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 0 25px 25px 10px;
+    line-height: 1.5;
+}
+
+.templeHall, .Bookandgifts, .Prasad {
+    text-align: center;
+}
+
+#img {
+    height: 220px;
+    width: 350px;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px black;
+}
+
+.card:hover #img {
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 1024px) {
+    .card {
+        width: 45%; 
+        margin: 10px auto;
+    }
+
+    .Heading {
+        font-size: 26px;
+    }
+
+    .para {
+        font-size: 18px;
+    }
+
+    #img {
+        height: auto;
+        width: 100%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%; 
+        margin: 20px auto;
+    }
+
+    .Heading {
+        font-size: 24px;
+    }
+
+    .para {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    #img {
+        width: 100%; 
+        height: auto; 
+    }
+}
+
+@media (max-width: 480px) {
+    .Heading {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .para {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .card {
+        width: 100%; 
+    }
+
+    #img {
+        border-radius: 10px; 
+    }
+}
