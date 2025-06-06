@@ -1,7 +1,7 @@
 # Modern Blogging Platform
 
 A modern, feature-rich blogging platform built with React, TypeScript, and Vite. This project leverages the power of modern web technologies to provide a seamless blogging experience.
-
+https://github.com/Girish14j/PurpleBlog/blob/f61077d43bcbe41955ba9516893693e856fa09bd/Screenshot%202025-06-06%20110911.png
 ## 🚀 Features
 
 - Modern UI with Tailwind CSS
