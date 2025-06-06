@@ -1,7 +1,8 @@
 import * as React from "react"
 import * as RechartsPrimitive from "recharts"
+import { NameType, ValueType, Payload } from "recharts"
 
-import { cn } from "../../lib/utils"
+import { cn } from "@/lib/utils"
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
@@ -109,6 +110,7 @@ const ChartTooltipContent = React.forwardRef<
       indicator?: "line" | "dot" | "dashed"
       nameKey?: string
       labelKey?: string
+      labelClassName?: string
     }
 >(
   (
@@ -121,7 +123,7 @@ const ChartTooltipContent = React.forwardRef<
       hideIndicator = false,
       label,
       labelFormatter,
-      // labelClassName, // Removed because it's not a valid prop
+      labelClassName,
       formatter,
       color,
       nameKey,
@@ -139,30 +141,27 @@ const ChartTooltipContent = React.forwardRef<
       const [item] = payload
       const key = `${labelKey || item.dataKey || item.name || "value"}`
       const itemConfig = getPayloadConfigFromPayload(config, item, key)
-      const value =
-        !labelKey && typeof label === "string"
-          ? config[label as keyof typeof config]?.label || label
-          : itemConfig?.label
+      const value = typeof itemConfig?.label === 'string' || typeof itemConfig?.label === 'number' ? itemConfig?.label : (typeof label === 'string' || typeof label === 'number' ? label : undefined);
 
-      if (labelFormatter) {
+      if (labelFormatter && (typeof value === 'string' || typeof value === 'number')) {
         return (
-          <div className={cn("font-medium")}>
+          <div className={cn("font-medium", labelClassName)}>
             {labelFormatter(value)}
           </div>
-        )
+        );
       }
 
       if (!value) {
         return null
       }
 
-      return <div className={cn("font-medium")}>{value}</div>
+      return <div className={cn("font-medium", labelClassName)}>{value}</div>
     }, [
       label,
       labelFormatter,
       payload,
       hideLabel,
-      // labelClassName, // Removed because it's not a valid prop
+      labelClassName,
       config,
       labelKey,
     ])
@@ -190,14 +189,14 @@ const ChartTooltipContent = React.forwardRef<
 
             return (
               <div
-                key={typeof item.dataKey === "string" || typeof item.dataKey === "number" ? item.dataKey : `item-${index}`}
+                key={typeof item.dataKey === 'string' || typeof item.dataKey === 'number' ? item.dataKey : index}
                 className={cn(
                   "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-muted-foreground",
                   indicator === "dot" && "items-center"
                 )}
               >
                 {formatter && item?.value !== undefined && item.name ? (
-                  formatter(item.value, item.name, item, index)
+                  formatter(item.value as string | number | (string | number)[], item.name, item, index)
                 ) : (
                   <>
                     {itemConfig?.icon ? (
@@ -256,18 +255,26 @@ ChartTooltipContent.displayName = "ChartTooltip"
 
 const ChartLegend = RechartsPrimitive.Legend
 
+interface ChartLegendPayload extends Payload<ValueType, NameType> {
+  dataKey?: string | number | (string | number)[];
+  name?: string;
+  color?: string;
+  value?: any;
+}
+
+interface ChartLegendContentProps extends React.ComponentProps<"div">,
+  Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> {
+  hideIcon?: boolean;
+  nameKey?: string;
+  payload?: Array<ChartLegendPayload>;
+}
+
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div"> &
-    Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
-      hideIcon?: boolean
-      nameKey?: string
-    }
+  ChartLegendContentProps
 >(
-  (
-    { className, hideIcon = false, payload, verticalAlign = "bottom", nameKey },
-    ref
-  ) => {
+  ({ className, hideIcon = false, payload, verticalAlign = "bottom", nameKey },
+  ref) => {
     const { config } = useChart()
 
     if (!payload?.length) {
