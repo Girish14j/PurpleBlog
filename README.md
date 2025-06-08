@@ -1,88 +1,54 @@
-# Modern Blogging Platform
+# React + TypeScript + Vite
 
-A modern, feature-rich blogging platform built with React, TypeScript, and Vite. This project leverages the power of modern web technologies to provide a seamless blogging experience.
-https://github.com/Girish14j/PurpleBlog/blob/f61077d43bcbe41955ba9516893693e856fa09bd/Screenshot%202025-06-06%20110911.png
-## 🚀 Features
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-- Modern UI with Tailwind CSS
-- Responsive design
-- Rich text editing capabilities
-- Theme customization
-- Interactive components using Radix UI
-- Type-safe development with TypeScript
-- Fast development and build times with Vite
+Currently, two official plugins are available:
 
-## 🛠️ Tech Stack
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- **Frontend Framework:** React 18
-- **Language:** TypeScript
-- **Build Tool:** Vite
-- **Styling:** Tailwind CSS
-- **UI Components:** Radix UI
-- **Routing:** React Router DOM
-- **Form Handling:** React Hook Form
-- **State Management:** React Query
-- **Development Tools:** ESLint, TypeScript
+## Expanding the ESLint configuration
 
-## 📦 Installation
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-1. Clone the repository:
-```bash
-git clone [your-repository-url]
-cd blogging
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-2. Install dependencies:
-```bash
-npm install
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
 ```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-## 🏗️ Available Scripts
-
-- `npm run dev` - Start the development server
-- `npm run build` - Build the project for production
-- `npm run lint` - Run ESLint to check code quality
-- `npm run preview` - Preview the production build locally
-
-## 🎨 UI Components
-
-The project uses a comprehensive set of UI components from Radix UI, including:
-- Accordion
-- Alert Dialog
-- Avatar
-- Dropdown Menu
-- Navigation Menu
-- Toast notifications
-- And many more...
-
-## 🔧 Configuration
-
-The project includes several configuration files:
-- `vite.config.ts` - Vite configuration
-- `tailwind.config.cjs` - Tailwind CSS configuration
-- `tsconfig.json` - TypeScript configuration
-- `eslint.config.js` - ESLint configuration
-
-## 📝 Project Structure
-
-```
-blogging/
-├── src/              # Source files
-├── public/           # Static assets
-├── node_modules/     # Dependencies
-├── index.html        # Entry HTML file
-└── [config files]    # Various configuration files
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
