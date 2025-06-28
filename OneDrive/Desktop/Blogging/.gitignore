@@ -1,48 +1,181 @@
-# dependencies
-/node_modules
-/.pnp
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
 .pnp.js
 
-# testing
-/coverage
-
-# production
+# Production builds
 /build
 /dist
+dist-ssr
+*.local
 
-# misc
-.DS_Store
+# Environment variables
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# IDE
-.idea/
+# IDE and Editor files
 .vscode/
+.idea/
 *.swp
 *.swo
-
-# Logs
-logs
-*.log
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+logs
+*.log
+
+# Testing
+/coverage
+
+# Temporary files
+*.tmp
+*.temp
+
+# Exclude all unrelated projects and directories
+# OneDrive and system directories
+../../../.VirtualBox/
+../../../.android/
+../../../.arduinoIDE/
+../../../.cache/
+../../../.config/
+../../../.console-ninja/
+../../../.convex/
+../../../.cursor/
+../../../.degit/
+../../../.gitconfig
+../../../.gk/
+../../../.gradle/
+../../../.ipython/
+../../../.lesshst
+../../../.matplotlib/
+../../../.node_repl_history
+../../../.redhat/
+../../../.th-client/
+../../../.vscode/
+../../../.yarnrc
+../../../ACES-CERTIFICATE/
+../../../AppData/
+../../../Arduino IDE/
+../../../Contacts/
+../../../DSA revision/
+../../../DSA/
+../../../Devtown/
+../../../Documents/
+../../../Downloads/
+../../../E-commerce website/
+../../../Favorites/
+../../../Girish_joshi_resume.pdf
+../../../ISKCON-M-Meeting_room_scheduling/
+../../../IdeaProjects/
+../../../Iskconn/
+../../../JS_Chapterwise_Notes.pdf
+../../../Links/
+../../../Mewad/
+../../../Music/
+../../../NTUSER.DAT*
+../../../Nodejs/
+../../../PhpstormProjects/
+../../../PurpleBlog/
+../../../Saved Games/
+../../../Searches/
+../../../Taskyapplications/
+../../../Videos/
+../../../VirtualBox VMs/
+../../../c++/
+../../../calculator javascript/
+../../../coding savay/
+../../../dbms/
+../../../demo.class
+../../../demo.java
+../../../ecommerce website/
+../../../employee management system/
+../../../expreess-project/
+../../../freeglut-3.0.0/
+../../../girish codes.cpp
+../../../hospital management system/
+../../../instagram clone/
+../../../isk/
+../../../javascript/
+../../../mongodb/
+../../../movie ticket booking/
+../../../my-first-react-app/
+../../../nodeproject/
+../../../ntuser.dat.LOG*
+../../../ntuser.ini
+../../../package-lock.json
+../../../package.json
+../../../pdfTools/
+../../../portfolio/
+../../../portfoliog/
+../../../react-job/
+../../../react-js/
+../../../react-login/
+../../../react-project/
+../../../reactjs/
+../../../tsconfig.json
+../../../weather App/
+../../../zomato-clone-refferal/
+
+# Other projects in Desktop
+../ACES-MERN-Workshop/
+../Amazon Assistant.lnk
+../Authentication/
+../CodeBlocks.lnk
+../Cursor.lnk
+../DSBDA/
+../GitHub Desktop.lnk
+../Hallbookingsystem/
+../IntelliJ IDEA Community Edition 2023.3.4.lnk
+../Loginpage.zip
+../Loginpage/
+../MongoDBCompass.lnk
+../Notes/
+../Pictures - Shortcut.lnk
+../React-Login/
+../Shell/
+../StudentApp/
+../Supabase/
+../Tailwind/
+../Visual Studio Code.lnk
+../WeatherApp/
+../YouTube.lnk
+../bhakti-booking-bliss/
+../chai backend/
+../convex/
+../desktop.ini
+../iskbook/
+../item-management/
+../payload cms/
+../portfolio/
+../receipts/
+../url shortner/
+
+# Parent directories
+../../Documents/
+../../Getting started with OneDrive.pdf
+../../Pictures/
+../../desktop.ini
+../../voiceassistantproject.docx
+
+# System files
+.849C9593-D756-4E56-8D6E-42412F2A707B
