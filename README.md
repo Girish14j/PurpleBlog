@@ -82,6 +82,8 @@ src/
 
 This project follows the [MDN JavaScript Code Style Guide](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript) for consistent and maintainable code.
 
+> **Note:** The `feature/mdn-style-check` branch was created to verify and demonstrate MDN style guide compliance across the codebase.
+
 ### Key Style Rules
 
 - Use meaningful variable and function names
