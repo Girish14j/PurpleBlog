@@ -1,7 +1,7 @@
-import * as React from "react";
-import { DayPicker } from "react-day-picker";
+import * as React from 'react';
+import { DayPicker } from 'react-day-picker';
 
-import { cn } from "../../lib/utils";
+import { cn } from '../../lib/utils';
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
@@ -14,11 +14,11 @@ function Calendar({
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      className={cn("p-3", className)}
+      className={cn('p-3', className)}
       classNames={classNames}
       footer={
         props.footer || (
-          <div className="text-center text-sm text-muted-foreground">
+          <div className='text-center text-sm text-muted-foreground'>
             Select a date.
           </div>
         )
@@ -27,6 +27,6 @@ function Calendar({
     />
   );
 }
-Calendar.displayName = "Calendar";
+Calendar.displayName = 'Calendar';
 
 export { Calendar };

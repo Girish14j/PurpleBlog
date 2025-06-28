@@ -20,16 +20,16 @@ export const getBlogsFromLocalStorage = (): BlogPost[] => {
   if (!blogsJson) return [];
   try {
     return JSON.parse(blogsJson);
-  } catch (error) {
-    console.error('Error parsing blogs from localStorage:', error);
+  } catch (_) {
+    // Error parsing blogs from localStorage
     return [];
   }
 };
 
 // Generate snippet from blog content
-export const generateSnippet = (content: string, maxLength: number = 100): string => {
+export const generateSnippet = (content: string, maxLength = 100): string => {
   if (content.length <= maxLength) return content;
-  return content.substring(0, maxLength).trim() + '...';
+  return `${content.substring(0, maxLength).trim()}...`;
 };
 
 // Format date
@@ -38,7 +38,7 @@ export const formatDate = (dateString: string): string => {
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   });
 };
 
@@ -49,18 +49,24 @@ export const getAllCategories = (blogs: BlogPost[]): string[] => {
 };
 
 // Filter blogs by category
-export const filterByCategory = (blogs: BlogPost[], category: string): BlogPost[] => {
+export const filterByCategory = (
+  blogs: BlogPost[],
+  category: string
+): BlogPost[] => {
   if (!category) return blogs;
-  return blogs.filter(blog => blog.category.toLowerCase() === category.toLowerCase());
+  return blogs.filter(
+    blog => blog.category.toLowerCase() === category.toLowerCase()
+  );
 };
 
 // Search blogs by title or content
 export const searchBlogs = (blogs: BlogPost[], query: string): BlogPost[] => {
   if (!query) return blogs;
   const lowerCaseQuery = query.toLowerCase();
-  return blogs.filter(blog => 
-    blog.title.toLowerCase().includes(lowerCaseQuery) || 
-    blog.content.toLowerCase().includes(lowerCaseQuery) ||
-    blog.category.toLowerCase().includes(lowerCaseQuery)
+  return blogs.filter(
+    blog =>
+      blog.title.toLowerCase().includes(lowerCaseQuery) ||
+      blog.content.toLowerCase().includes(lowerCaseQuery) ||
+      blog.category.toLowerCase().includes(lowerCaseQuery)
   );
 };
