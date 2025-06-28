@@ -1,147 +1,122 @@
-# Modern Blogging Platform
+# Blogging Application
 
-A modern, feature-rich blogging platform built with React, TypeScript, and Vite. This project leverages the power of modern web technologies to provide a seamless blogging experience.
+A modern React TypeScript blog application with MDN code style guide compliance.
 
-## 🚀 Features
+## Features
 
-- Modern UI with Tailwind CSS
-- Responsive design
-- Rich text editing capabilities
-- Theme customization
-- Interactive components using Radix UI
-- Type-safe development with TypeScript
-- Fast development and build times with Vite
+- 📝 Create, edit, and delete blog posts
+- 🎨 Modern UI with Tailwind CSS and Radix UI components
+- 🌙 Dark/Light theme toggle
+- 📱 Responsive design
+- 🔍 Search and filter functionality
+- 📂 Category management
+- ✨ MDN JavaScript Code Style Guide compliant
+- 🚀 Vercel deployment ready
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Frontend Framework:** React 18
-- **Language:** TypeScript
-- **Build Tool:** Vite
-- **Styling:** Tailwind CSS
-- **UI Components:** Radix UI
-- **Routing:** React Router DOM
-- **Form Handling:** React Hook Form
-- **State Management:** React Query
-- **Development Tools:** ESLint, TypeScript, Prettier
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, Radix UI
+- **State Management**: React Context API
+- **Routing**: React Router DOM
+- **Code Quality**: ESLint, Prettier
+- **Deployment**: Vercel, GitHub Pages
 
-## 📦 Installation
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
 
 1. Clone the repository:
-
-```bash
-git clone [your-repository-url]
-cd blogging
-```
+   ```bash
+   git clone https://github.com/Girish14j/PurpleBlog.git
+   cd PurpleBlog
+   ```
 
 2. Install dependencies:
-
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-```bash
-npm run dev
-```
+4. Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-## 🏗️ Available Scripts
+## Available Scripts
 
-- `npm run dev` - Start the development server
-- `npm run build` - Build the project for production
-- `npm run lint` - Run ESLint to check code quality
-- `npm run lint:fix` - Automatically fix ESLint issues
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix ESLint issues
 - `npm run format` - Format code with Prettier
-- `npm run format:check` - Check if code is properly formatted
-- `npm run preview` - Preview the production build locally
+- `npm run format:check` - Check code formatting
 
-## 📝 Code Style Guide
-
-This project follows the [MDN JavaScript Code Style Guide](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Code_style_guide/JavaScript) and uses automated tools to enforce consistent code quality:
-
-### Key Style Rules:
-
-- **Indentation:** 2 spaces
-- **Quotes:** Single quotes for strings
-- **Semicolons:** Always required
-- **Variables:** Prefer `const` and `let` over `var`
-- **Equality:** Use strict equality (`===` and `!==`)
-- **Functions:** Use arrow functions where appropriate
-- **Template Literals:** Prefer over string concatenation
-- **Trailing Commas:** Use in multi-line objects/arrays
-- **Naming:** Use descriptive camelCase names
-
-### Code Quality Tools:
-
-- **ESLint:** Code quality and style enforcement
-- **Prettier:** Automatic code formatting
-- **TypeScript:** Type safety and static analysis
-- **EditorConfig:** Editor-level consistency
-
-### Formatting Your Code:
-
-```bash
-# Format all code
-npm run format
-
-# Check and fix linting issues
-npm run lint:fix
-
-# Check if code is properly formatted
-npm run format:check
-```
-
-## 🎨 UI Components
-
-The project uses a comprehensive set of UI components from Radix UI, including:
-
-- Accordion
-- Alert Dialog
-- Avatar
-- Dropdown Menu
-- Navigation Menu
-- Toast notifications
-- And many more...
-
-## 🔧 Configuration
-
-The project includes several configuration files:
-
-- `vite.config.ts` - Vite configuration
-- `tailwind.config.cjs` - Tailwind CSS configuration
-- `tsconfig.json` - TypeScript configuration
-- `eslint.config.js` - ESLint configuration with MDN style rules
-- `.prettierrc` - Prettier formatting rules
-- `.editorconfig` - Editor consistency settings
-
-## 📝 Project Structure
+## Project Structure
 
 ```
-blogging/
-├── src/              # Source files
-├── public/           # Static assets
-├── node_modules/     # Dependencies
-├── .github/          # GitHub Actions workflows
-├── index.html        # Entry HTML file
-└── [config files]    # Various configuration files
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # Radix UI components
+│   ├── BlogCard.tsx    # Blog post card component
+│   ├── BlogForm.tsx    # Blog post form
+│   ├── DeleteDialog.tsx # Delete confirmation dialog
+│   ├── Navbar.tsx      # Navigation bar
+│   └── ThemeToggle.tsx # Theme toggle component
+├── context/            # React Context providers
+├── hooks/              # Custom React hooks
+├── lib/                # Utility libraries
+├── pages/              # Page components
+├── types/              # TypeScript type definitions
+└── utils/              # Utility functions
 ```
 
-## 🚀 Deployment
+## Code Style
 
-This project is configured for automatic deployment to GitHub Pages. The deployment workflow will:
+This project follows the [MDN JavaScript Code Style Guide](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript) for consistent and maintainable code.
 
-1. Build the project
-2. Deploy to GitHub Pages
-3. Make it available at `https://[username].github.io/Blogging/`
+### Key Style Rules
 
-## 🤝 Contributing
+- Use meaningful variable and function names
+- Prefer `const` and `let` over `var`
+- Use template literals for string concatenation
+- Prefer arrow functions for callbacks
+- Use destructuring for cleaner code
+- Follow consistent indentation (2 spaces)
 
-Contributions are welcome! Please ensure your code follows the established style guidelines:
+## Deployment
 
-1. Run `npm run format` before committing
-2. Run `npm run lint` to check for issues
-3. Fix any linting errors before submitting a PR
+### Vercel
 
-## 📄 License
+The project is configured for automatic deployment on Vercel:
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically detect the Vite configuration
+3. Deployments are triggered on every push to main branch
+
+### GitHub Pages
+
+For GitHub Pages deployment, the project includes a GitHub Actions workflow that builds and deploys the application.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Test deployment fix - Updated README for clean repository structure**
